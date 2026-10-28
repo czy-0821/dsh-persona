@@ -1,0 +1,65 @@
+{
+  "name": "dsh-persona",
+  "version": "0.4.0",
+  "description": "人格记忆：对话沉淀成信号流，信号流长成会站住的人格。零依赖，一条命令装完。为 DSH 设计。",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "store.js",
+    "persona.js",
+    "prompt.js",
+    "distill.js",
+    "install.mjs",
+    "install.ps1",
+    "smoke.mjs",
+    "smoke.integration.mjs",
+    "smoke.install.mjs",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "LICENSE",
+    "README.md",
+    "README-zh.md"
+  ],
+  "scripts": {
+    "install:dsh": "node install.mjs",
+    "smoke": "node smoke.mjs",
+    "test": "node smoke.mjs && node smoke.integration.mjs && node smoke.install.mjs"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "persona",
+    "memory",
+    "agent",
+    "人格",
+    "记忆"
+  ],
+  "author": "CZY-0821",
+  "license": "GPL-2.0-only",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CZY-0821/dsh-persona.git"
+  },
+  "homepage": "https://github.com/CZY-0821/dsh-persona#readme",
+  "bugs": {
+    "url": "https://github.com/CZY-0821/dsh-persona/issues"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "packageManager": "pnpm@11.7.0"
+}

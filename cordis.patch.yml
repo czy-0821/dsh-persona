@@ -1,0 +1,27 @@
+# dsh-persona bundle layer：把插件挂到 profile 的插件行。
+#
+# 生效方式（三选一）：
+#   1. 手动：把包目录复制进 profile 的 node_modules，再在 profile 的 cordis.patch.yml
+#      末尾追加下面这段 insert 行。必须**先关掉 DSH**，否则 HMR 会杀掉在途 turn。
+#   2. 命令行：dsh plugin --profile desktop add "link:<本目录绝对路径>"
+#   3. 面板：plugin_manager install_bundle（需要审批）
+#
+# 关于 config：宿主的 schemastery 拿不到时，本插件的 Config 为 undefined，
+# 下面这段 config: 可能到不了插件。那种情况下改用「人格库」里的 config.json，
+# 键名与本文件完全一致（JSON 格式）。有 schemastery 时这里就是正式入口。
+- insert:
+    - id: persona
+      name: dsh-persona
+      config:
+        # 她自己叫什么（写进人格卡「现在」那段）
+        personaName: ''
+        # 起步人设文件（可选）。整份复制进人格库，作为「起步人设」段只读注入
+        seedPath: ''
+        # 每累积多少条对话片段触发一次后台提炼
+        distillEvery: 10
+        # 两次提炼之间的最小间隔（毫秒），防止刷屏式调用
+        distillMinIntervalMs: 300000
+        # 同一件事被提过几次才算「站住」（站住的不再随时间淡掉）
+        solidMentions: 3
+        # 被验证几次才算「站住」（人工钉住直通）
+        solidVerified: 2

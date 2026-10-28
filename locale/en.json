@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Persona Memory",
+    "description": "Distills conversations into trait entries that slowly grow into a stable persona, injected before every turn."
+  }
+}
